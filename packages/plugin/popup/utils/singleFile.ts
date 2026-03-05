@@ -1,5 +1,5 @@
-import { isNil } from '@web-archive/shared/utils'
 import type { SingleFileSetting } from '~/utils/singleFile'
+import { isNil } from '@web-archive/shared/utils'
 
 export function getSingleFileSetting() {
   const setting = localStorage.getItem('single-file-setting')

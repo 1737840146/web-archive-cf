@@ -1,5 +1,6 @@
+import type { AITagConfig } from '@web-archive/shared/types'
 import { createHash } from 'node:crypto'
-import { type AITagConfig, ConfigKey } from '@web-archive/shared/types'
+import { ConfigKey } from '@web-archive/shared/types'
 
 function hashToken(token: string): string {
   return createHash('sha256').update(token).digest('hex')
@@ -84,10 +85,10 @@ async function setAITagConfig(DB: D1Database, config: AITagConfig): Promise<bool
 
 export {
   checkAdminExist,
-  verifyAdminToken,
-  setAdminToken,
-  getShouldShowRecent,
-  setShouldShowRecent,
   getAITagConfig,
+  getShouldShowRecent,
+  setAdminToken,
   setAITagConfig,
+  setShouldShowRecent,
+  verifyAdminToken,
 }

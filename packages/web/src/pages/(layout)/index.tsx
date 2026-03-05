@@ -1,20 +1,20 @@
-import { useInfiniteScroll, useRequest, useWhyDidYouUpdate } from 'ahooks'
 import type { Ref } from '@web-archive/shared/components/scroll-area'
-import { useEffect, useMemo, useRef, useState } from 'react'
 import type { Page } from '@web-archive/shared/types'
 import { ScrollArea } from '@web-archive/shared/components/scroll-area'
-import { useOutletContext } from 'react-router-dom'
 import { isNil, isNotNil } from '@web-archive/shared/utils'
-import { useMediaQuery } from '~/hooks/useMediaQuery'
+import { useInfiniteScroll, useRequest, useWhyDidYouUpdate } from 'ahooks'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { useOutletContext } from 'react-router-dom'
+import CardView from '~/components/card-view'
+import Header from '~/components/header'
+import LoadingMore from '~/components/loading-more'
+import LoadingWrapper from '~/components/loading-wrapper'
+import PageCard from '~/components/page-card'
 import PageDataPieCard from '~/components/page-data-pie-card'
 import R2UsageCard from '~/components/r2-usage-card'
-import { deletePage, getRecentSavePage, queryPage } from '~/data/page'
-import PageCard from '~/components/page-card'
 import { getR2Usage } from '~/data/data'
-import Header from '~/components/header'
-import LoadingWrapper from '~/components/loading-wrapper'
-import CardView from '~/components/card-view'
-import LoadingMore from '~/components/loading-more'
+import { deletePage, getRecentSavePage, queryPage } from '~/data/page'
+import { useMediaQuery } from '~/hooks/useMediaQuery'
 import { useShouldShowRecent } from '~/hooks/useShouldShowRecent'
 
 function RecentSavePageView() {
@@ -63,12 +63,12 @@ function RecentSavePageView() {
         {
           shouldShowRecent
             ? reorganizedPages.map((item, idx) => (
-              <div key={idx} className="flex flex-col gap-4">
-                {idx === 0 && <PageDataPieCard />}
-                {columnCount === 1 ? <R2UsageCard loading={r2Loading} data={r2Data} /> : idx === 1 && <R2UsageCard loading={r2Loading} data={r2Data} />}
-                {item}
-              </div>
-            ))
+                <div key={idx} className="flex flex-col gap-4">
+                  {idx === 0 && <PageDataPieCard />}
+                  {columnCount === 1 ? <R2UsageCard loading={r2Loading} data={r2Data} /> : idx === 1 && <R2UsageCard loading={r2Loading} data={r2Data} />}
+                  {item}
+                </div>
+              ))
             : (
                 [
                   <div key={1}>

@@ -5,8 +5,8 @@ const TagContext = createContext<{
   tagCache: Tag[]
   refreshTagCache: () => Promise<Tag[]>
 }>({
-      tagCache: [],
-      refreshTagCache: async () => [],
-    })
+  tagCache: [],
+  refreshTagCache: async () => [],
+})
 
 export default TagContext

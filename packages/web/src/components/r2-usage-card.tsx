@@ -8,25 +8,25 @@ const R2UsageCard = memo(({ loading, data }: { loading: boolean, data?: { count:
   return loading
     ? <ChartCardSkeleton />
     : (
-      <Card>
-        <CardHeader>
-          <CardTitle>{t('r2-usage')}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="text-sm text-muted-foreground">
-            <section>
-              <span>{data?.count}</span>
-              {' '}
-              objects
-            </section>
-            <section>
-              <span>{Math.round((data?.size ?? 0) / 1024 / 1024)}</span>
-              {' '}
-              MB
-            </section>
-          </div>
-        </CardContent>
-      </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>{t('r2-usage')}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="text-sm text-muted-foreground">
+              <section>
+                <span>{data?.count}</span>
+                {' '}
+                objects
+              </section>
+              <section>
+                <span>{Math.round((data?.size ?? 0) / 1024 / 1024)}</span>
+                {' '}
+                MB
+              </section>
+            </div>
+          </CardContent>
+        </Card>
       )
 })
 

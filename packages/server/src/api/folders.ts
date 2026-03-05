@@ -1,10 +1,10 @@
+import type { HonoTypeUserInformation } from '~/constants/binding'
+import { isNil, isNumberString } from '@web-archive/shared/utils'
 import { Hono } from 'hono'
 import { validator } from 'hono/validator'
-import { isNil, isNumberString } from '@web-archive/shared/utils'
-import { queryPage } from '~/model/page'
-import type { HonoTypeUserInformation } from '~/constants/binding'
-import result from '~/utils/result'
 import { checkFolderExists, deleteFolderById, insertFolder, queryDeletedFolders, selectAllFolders, updateFolder } from '~/model/folder'
+import { queryPage } from '~/model/page'
+import result from '~/utils/result'
 
 const app = new Hono<HonoTypeUserInformation>()
 

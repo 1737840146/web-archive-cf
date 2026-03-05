@@ -1,6 +1,6 @@
 import { isNil } from '@web-archive/shared/utils'
-import Browser from 'webextension-polyfill'
 import Compressor from 'compressorjs'
+import Browser from 'webextension-polyfill'
 import { base64ToBlob, blobToBase64 } from '~/utils/file'
 
 async function getImageSize(base64: string) {

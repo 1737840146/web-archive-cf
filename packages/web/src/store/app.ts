@@ -6,10 +6,10 @@ const AppContext = createContext<{
   readMode: boolean
   setReadMode: (readMode: boolean) => void
 }>({
-      view: 'card',
-      setView: () => { },
-      readMode: false,
-      setReadMode: (value: boolean) => { },
-    })
+  view: 'card',
+  setView: () => { },
+  readMode: false,
+  setReadMode: (value: boolean) => { },
+})
 
 export default AppContext

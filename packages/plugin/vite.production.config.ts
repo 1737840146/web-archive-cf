@@ -1,7 +1,7 @@
 import { resolve } from 'node:path'
 import process from 'node:process'
-import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 const isFirefox = process.argv.includes('--firefox')

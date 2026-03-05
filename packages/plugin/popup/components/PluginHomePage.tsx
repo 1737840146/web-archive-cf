@@ -1,14 +1,14 @@
+import type { PageType } from '~/popup/PopupPage'
 import { Button } from '@web-archive/shared/components/button'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@web-archive/shared/components/tooltip'
+import { isNil } from '@web-archive/shared/utils'
 import { useRequest } from 'ahooks'
 import { History, House, LogOut, Settings, SquareLibrary } from 'lucide-react'
-import { sendMessage } from 'webext-bridge/popup'
-import { isNil } from '@web-archive/shared/utils'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@web-archive/shared/components/tooltip'
 import { useTranslation } from 'react-i18next'
+import { sendMessage } from 'webext-bridge/popup'
+import { ThemeToggle } from '~/popup/components/ThemeToggle'
 import { getCurrentTab } from '../utils/tab'
 import SavedPageList from './SavedPageList'
-import { ThemeToggle } from '~/popup/components/ThemeToggle'
-import type { PageType } from '~/popup/PopupPage'
 
 interface PluginHomePageProps {
   setActivePage: (tab: PageType) => void

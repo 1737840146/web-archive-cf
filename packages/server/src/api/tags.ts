@@ -1,8 +1,8 @@
+import type { HonoTypeUserInformation } from '~/constants/binding'
 import { buildGenerateTagMessage, isNil, isNumberString } from '@web-archive/shared/utils'
 import { Hono } from 'hono'
 import { validator } from 'hono/validator'
 import { z } from 'zod'
-import type { HonoTypeUserInformation } from '~/constants/binding'
 import { deleteTagById, insertTag, selectAllTags, updateTag } from '~/model/tag'
 import result from '~/utils/result'
 

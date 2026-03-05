@@ -1,10 +1,10 @@
 import { Button } from '@web-archive/shared/components/button'
 import { Grid2X2, List } from 'lucide-react'
-import { useContext } from 'react'
+import { use } from 'react'
 import AppContext from '../store/app'
 
 function ViewToggle() {
-  const { view, setView } = useContext(AppContext)
+  const { view, setView } = use(AppContext)
   return (
     <>
       <div className="flex hidden lg:block">

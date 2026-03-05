@@ -1,14 +1,14 @@
 import { Label } from '@radix-ui/react-context-menu'
 import { DialogDescription } from '@radix-ui/react-dialog'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@web-archive/shared/components/dialog'
+import LanguageCombobox from '@web-archive/shared/components/language-combobox'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@web-archive/shared/components/select'
 import { Switch } from '@web-archive/shared/components/switch'
 import { useTheme } from '@web-archive/shared/components/theme-provider'
 import { Settings } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import LanguageCombobox from '@web-archive/shared/components/language-combobox'
-import AITagSettingCollapsible from './ai-tag-setting-collapsible'
 import { useShouldShowRecent } from '~/hooks/useShouldShowRecent'
+import AITagSettingCollapsible from './ai-tag-setting-collapsible'
 
 function SettingDialog({ open, setOpen }: { open: boolean, setOpen: (open: boolean) => void }) {
   const { t } = useTranslation()

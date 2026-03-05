@@ -1,9 +1,9 @@
+import type { SingleFileSetting } from '~/utils/singleFile'
 import { sendMessage } from 'webext-bridge/background'
 import Browser from 'webextension-polyfill'
+import { base64ToBlob } from '~/utils/file'
 import { request } from './background'
 import { keepAlive } from './keepAlive'
-import type { SingleFileSetting } from '~/utils/singleFile'
-import { base64ToBlob } from '~/utils/file'
 
 export interface SeriableSingleFileTask {
   uuid: string
@@ -165,7 +165,7 @@ async function createAndRunTask(options: CreateTaskOptions) {
 }
 
 export {
+  clearFinishedTaskList,
   createAndRunTask,
   getTaskList,
-  clearFinishedTaskList,
 }

@@ -41,7 +41,7 @@ export interface SingleFileSetting {
 
 declare const extension: {
   getPageData: (
-    options: SingleFileSetting
+    options: SingleFileSetting,
   ) => Promise<{
     content: string
     title: string

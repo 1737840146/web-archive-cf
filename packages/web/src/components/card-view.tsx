@@ -1,7 +1,7 @@
 import type { Page } from '@web-archive/shared/types'
 import { useMemo } from 'react'
-import PageCard from './page-card'
 import { useMediaQuery } from '~/hooks/useMediaQuery'
+import PageCard from './page-card'
 
 function CardView({ pages, onPageDelete }: { pages?: Page[], onPageDelete: (page: Page) => void }) {
   const { '2xl': is2xlScreen, xl: isXlScreen, md: isMdScreen } = useMediaQuery()

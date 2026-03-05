@@ -1,6 +1,6 @@
 import type { D1Database } from '@cloudflare/workers-types/experimental'
-import { isNotNil } from '@web-archive/shared/utils'
 import type { Folder } from '~/sql/types'
+import { isNotNil } from '@web-archive/shared/utils'
 
 async function checkFolderExists(DB: D1Database, name: string) {
   const sql = `
@@ -124,13 +124,13 @@ async function restoreFolder(DB: D1Database, id: number) {
 }
 
 export {
-  deleteFolderById,
   checkFolderExists,
-  insertFolder,
-  updateFolder,
-  selectAllFolders,
+  deleteFolderById,
   getFolderById,
+  insertFolder,
   queryDeletedFolders,
-  selectDeletedFolderTotalCount,
   restoreFolder,
+  selectAllFolders,
+  selectDeletedFolderTotalCount,
+  updateFolder,
 }

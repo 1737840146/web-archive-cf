@@ -1,13 +1,13 @@
-import { ArrowLeft } from 'lucide-react'
-import { useState } from 'react'
-import { Checkbox } from '@web-archive/shared/components/checkbox'
-import { Label } from '@web-archive/shared/components/label'
-import { Input } from '@web-archive/shared/components/input'
-import { useTranslation } from 'react-i18next'
-import LanguageCombobox from '@web-archive/shared/components/language-combobox'
-import { getSingleFileSetting, setSingleFileSetting } from '../utils/singleFile'
 import type { PageType } from '~/popup/PopupPage'
 import type { SingleFileSetting } from '~/utils/singleFile'
+import { Checkbox } from '@web-archive/shared/components/checkbox'
+import { Input } from '@web-archive/shared/components/input'
+import { Label } from '@web-archive/shared/components/label'
+import LanguageCombobox from '@web-archive/shared/components/language-combobox'
+import { ArrowLeft } from 'lucide-react'
+import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { getSingleFileSetting, setSingleFileSetting } from '../utils/singleFile'
 
 function SettingPage({ setActivePage }: { setActivePage: (tab: PageType) => void }) {
   const { t } = useTranslation()

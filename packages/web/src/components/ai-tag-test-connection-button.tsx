@@ -1,11 +1,11 @@
-import { Button } from '@web-archive/shared/components/button'
-import { AlertCircle, Check, Loader2 } from 'lucide-react'
-import { useState } from 'react'
+import type { AITagConfig } from '@web-archive/shared/types'
 import type { GenerateTagProps } from '@web-archive/shared/utils'
+import { Button } from '@web-archive/shared/components/button'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@web-archive/shared/components/tooltip'
 import { generateTagByOpenAI } from '@web-archive/shared/utils'
 import { useRequest } from 'ahooks'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@web-archive/shared/components/tooltip'
-import type { AITagConfig } from '@web-archive/shared/types'
+import { AlertCircle, Check, Loader2 } from 'lucide-react'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { generateTag } from '~/data/tag'
 
@@ -62,31 +62,31 @@ function AITagTestConnectionButton({ config, onValidate }: Props) {
           >
             {loading
               ? (
-                <>
-                  <Loader2 className="animate-spin"></Loader2>
-                  {t('testing')}
-                </>
+                  <>
+                    <Loader2 className="animate-spin"></Loader2>
+                    {t('testing')}
+                  </>
                 )
               : (
-                <>
-                  {status === 'untested' && (
-                    <>
-                      {t('test-connection')}
-                    </>
-                  )}
-                  {status === 'success' && (
-                    <>
-                      <Check className="w-4 h-4 text-primary" />
-                      {t('successed')}
-                    </>
-                  )}
-                  {status === 'error' && (
-                    <>
-                      <AlertCircle className="w-4 h-4 text-destructive" />
-                      {t('failed')}
-                    </>
-                  )}
-                </>
+                  <>
+                    {status === 'untested' && (
+                      <>
+                        {t('test-connection')}
+                      </>
+                    )}
+                    {status === 'success' && (
+                      <>
+                        <Check className="w-4 h-4 text-primary" />
+                        {t('successed')}
+                      </>
+                    )}
+                    {status === 'error' && (
+                      <>
+                        <AlertCircle className="w-4 h-4 text-destructive" />
+                        {t('failed')}
+                      </>
+                    )}
+                  </>
                 )}
           </Button>
         </TooltipTrigger>

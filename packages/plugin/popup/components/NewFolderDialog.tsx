@@ -1,11 +1,11 @@
-import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@web-archive/shared/components/dialog'
 import { Button } from '@web-archive/shared/components/button'
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@web-archive/shared/components/dialog'
 import { Input } from '@web-archive/shared/components/input'
+import { useRequest } from 'ahooks'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
-import { useRequest } from 'ahooks'
-import { sendMessage } from 'webext-bridge/popup'
 import { useTranslation } from 'react-i18next'
+import { sendMessage } from 'webext-bridge/popup'
 
 interface NewFolderProps {
   afterSubmit: (folder: { id: number, name: string }) => void

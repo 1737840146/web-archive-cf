@@ -1,22 +1,22 @@
 import { DialogClose, DialogDescription, DialogTitle } from '@radix-ui/react-dialog'
-import { Dialog, DialogContent, DialogFooter } from '@web-archive/shared/components/dialog'
-import { Input } from '@web-archive/shared/components/input'
-import { Switch } from '@web-archive/shared/components/switch'
-import { useRequest } from 'ahooks'
-import { useForm } from 'react-hook-form'
-import { memo, useContext, useEffect } from 'react'
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@web-archive/shared/components/form'
-import { z } from 'zod'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@web-archive/shared/components/select'
-import { Textarea } from '@web-archive/shared/components/textarea'
-import { Button } from '@web-archive/shared/components/button'
-import { toast } from 'react-hot-toast'
-import { useOutletContext } from 'react-router-dom'
 import AutoCompleteTagInput from '@web-archive/shared/components/auto-complete-tag-input'
+import { Button } from '@web-archive/shared/components/button'
+import { Dialog, DialogContent, DialogFooter } from '@web-archive/shared/components/dialog'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@web-archive/shared/components/form'
+import { Input } from '@web-archive/shared/components/input'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@web-archive/shared/components/select'
+import { Switch } from '@web-archive/shared/components/switch'
+import { Textarea } from '@web-archive/shared/components/textarea'
+import { useRequest } from 'ahooks'
+import { memo, useEffect } from 'react'
+import { useForm } from 'react-hook-form'
+import { toast } from 'react-hot-toast'
 import { useTranslation } from 'react-i18next'
+import { useOutletContext } from 'react-router-dom'
+import { z } from 'zod'
 import LoadingWrapper from '~/components/loading-wrapper'
-import { getPageDetail, updatePage } from '~/data/page'
 import { getAllFolder } from '~/data/folder'
+import { getPageDetail, updatePage } from '~/data/page'
 import TagContext from '~/store/tag'
 
 interface CardEditDialogProps {
@@ -69,7 +69,7 @@ function Comp({ open, onOpenChange, pageId }: CardEditDialogProps) {
     },
   )
 
-  const { tagCache, refreshTagCache } = useContext(TagContext)
+  const { tagCache, refreshTagCache } = use(TagContext)
   const selectTags = tagCache?.filter(tag => tag.pageIds.includes(pageId))
   const handleTagChange = ({
     bindTags,

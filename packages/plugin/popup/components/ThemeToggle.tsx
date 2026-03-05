@@ -1,6 +1,6 @@
-import { Moon, Sun, SunMoon } from 'lucide-react'
-
 import { useTheme } from '@web-archive/shared/components/theme-provider'
+
+import { Moon, Sun, SunMoon } from 'lucide-react'
 
 function getNextTheme(current: 'light' | 'dark' | 'system') {
   switch (current) {

@@ -52,10 +52,10 @@ function restoreFolder(id: number): Promise<boolean> {
 }
 
 export {
-  getAllFolder,
-  deleteFolder,
   createFolder,
-  updateFolder,
+  deleteFolder,
+  getAllFolder,
   queryDeletedFolder,
   restoreFolder,
+  updateFolder,
 }

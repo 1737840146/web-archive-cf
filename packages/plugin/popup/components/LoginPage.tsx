@@ -1,11 +1,11 @@
-import { sendMessage } from 'webext-bridge/popup'
+import type { PageType } from '~/popup/PopupPage'
 import { Button } from '@web-archive/shared/components/button'
-import { Label } from '@web-archive/shared/components/label'
 import { Input } from '@web-archive/shared/components/input'
+import { Label } from '@web-archive/shared/components/label'
 import toast from 'react-hot-toast'
 import { useTranslation } from 'react-i18next'
+import { sendMessage } from 'webext-bridge/popup'
 import { useServerUrl, useToken } from '~/popup/composable/server'
-import type { PageType } from '~/popup/PopupPage'
 
 function LoginPage({ setActivePage }: { setActivePage: (tab: PageType) => void }) {
   const { t } = useTranslation()

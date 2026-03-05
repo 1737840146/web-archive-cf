@@ -79,8 +79,8 @@ async function getNextShowcasePageId(DB: D1Database, lastId: number) {
 }
 
 export {
+  getNextShowcasePageId,
+  getShowcaseDetailById,
   queryShowcase,
   updateShowcase,
-  getShowcaseDetailById,
-  getNextShowcasePageId,
 }

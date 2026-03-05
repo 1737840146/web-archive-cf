@@ -28,8 +28,8 @@ async function setAITagConfig(config: AITagConfig) {
 }
 
 export {
-  getShouldShowRecent,
-  setShouldShowRecent,
   getAITagConfig,
+  getShouldShowRecent,
   setAITagConfig,
+  setShouldShowRecent,
 }

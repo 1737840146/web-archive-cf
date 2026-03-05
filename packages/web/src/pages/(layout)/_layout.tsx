@@ -1,10 +1,10 @@
-import { Toaster } from 'react-hot-toast'
-import { Outlet } from 'react-router-dom'
-import { useMemo, useState } from 'react'
 import { SidebarProvider } from '@web-archive/shared/components/side-bar'
 import { useRequest } from 'ahooks'
-import SideBar from '~/components/side-bar'
+import { useMemo, useState } from 'react'
+import { Toaster } from 'react-hot-toast'
+import { Outlet } from 'react-router-dom'
 import Hamburger from '~/components/hamburger'
+import SideBar from '~/components/side-bar'
 import { getAllTag } from '~/data/tag'
 import TagContext from '~/store/tag'
 
@@ -26,7 +26,7 @@ function Layout() {
     handleSearch()
   }
   return (
-    <TagContext.Provider value={
+    <TagContext value={
       useMemo(() => ({
         tagCache: tagCache || [],
         refreshTagCache,
@@ -51,7 +51,7 @@ function Layout() {
           </div>
         </SidebarProvider>
       </main>
-    </TagContext.Provider>
+    </TagContext>
   )
 }
 

@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogTitle } from '@web-archive/shared/componen
 import { Input } from '@web-archive/shared/components/input'
 import { isNil } from '@web-archive/shared/utils'
 import { useRequest } from 'ahooks'
-import { useContext, useEffect, useState } from 'react'
+import { use, useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { useTranslation } from 'react-i18next'
 import { updateTag } from '~/data/tag'
@@ -21,7 +21,7 @@ interface EditTagProps {
 
 function EditTagDialog({ afterSubmit, open, setOpen, editTag }: EditTagProps) {
   const { t } = useTranslation()
-  const { tagCache } = useContext(TagContext)
+  const { tagCache } = use(TagContext)
   const [tagName, setTagName] = useState(editTag?.name ?? '')
   useEffect(() => {
     setTagName(editTag?.name ?? '')

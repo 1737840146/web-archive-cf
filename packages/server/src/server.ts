@@ -1,13 +1,13 @@
-import { Hono } from 'hono'
 import type { Bindings, HonoTypeUserInformation } from './constants/binding'
-import tokenMiddleware from './middleware/token'
-import data from './api/data'
-import showcase from '~/api/showcase'
-import pages from '~/api/pages'
+import { Hono } from 'hono'
 import auth from '~/api/auth'
-import folders from '~/api/folders'
-import tags from '~/api/tags'
 import config from '~/api/config'
+import folders from '~/api/folders'
+import pages from '~/api/pages'
+import showcase from '~/api/showcase'
+import tags from '~/api/tags'
+import data from './api/data'
+import tokenMiddleware from './middleware/token'
 
 const app = new Hono<{ Bindings: Bindings }>()
 

@@ -1,18 +1,18 @@
+import type { Tag } from '@web-archive/shared/types'
 import { Badge } from '@web-archive/shared/components/badge'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@web-archive/shared/components/collapsible'
 import { ContextMenu, ContextMenuContent, ContextMenuItem, ContextMenuTrigger } from '@web-archive/shared/components/context-menu'
 import { SidebarMenu, SidebarMenuButton, SidebarMenuSub } from '@web-archive/shared/components/side-bar'
-import type { Tag } from '@web-archive/shared/types'
 import { cn } from '@web-archive/shared/utils'
 import { useRequest } from 'ahooks'
 import { ChevronDown, Pencil, TagIcon, Trash } from 'lucide-react'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { useTranslation } from 'react-i18next'
-import EditTagDialog from './edit-tag-dialog'
+import { queryAllPageIds } from '~/data/page'
 import { deleteTag } from '~/data/tag'
 import TagContext from '~/store/tag'
-import { queryAllPageIds } from '~/data/page'
+import EditTagDialog from './edit-tag-dialog'
 
 interface SidebarTagMenuProps {
   selectedFolder: number | null
@@ -65,7 +65,7 @@ function TagBadge({ tag, isSelected, onClick, onDelete, onEdit }: TagBadgeProps)
 
 function SidebarTagMenu({ selectedTag, setSelectedTag, selectedFolder }: SidebarTagMenuProps) {
   const { t } = useTranslation()
-  const { tagCache: tags, refreshTagCache } = useContext(TagContext)
+  const { tagCache: tags, refreshTagCache } = use(TagContext)
   const [isTagsCollapseOpen, setIsTagsCollapseOpen] = useState(false)
 
   const handleClickTag = (tagId: number) => {

@@ -1,20 +1,20 @@
+import type { Folder as FolderType } from '@web-archive/shared/types'
 import { Button } from '@web-archive/shared/components/button'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@web-archive/shared/components/collapsible'
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub } from '@web-archive/shared/components/side-bar'
 import { Skeleton } from '@web-archive/shared/components/skeleton'
 import { cn, isNil } from '@web-archive/shared/utils'
+import { useRequest } from 'ahooks'
 import { ChevronDown, FolderIcon, Plus } from 'lucide-react'
 import { useState } from 'react'
-import type { Folder as FolderType } from '@web-archive/shared/types'
-import { useRequest } from 'ahooks'
 import toast from 'react-hot-toast'
 import { useTranslation } from 'react-i18next'
-import NewFolderDialog from './new-folder-dialog'
+import { deleteFolder, getAllFolder } from '~/data/folder'
+import { Link, useNavigate } from '~/router'
+import emitter from '~/utils/emitter'
 import EditFolderDialog from './edit-folder-dialog'
 import Folder from './folder'
-import { deleteFolder, getAllFolder } from '~/data/folder'
-import emitter from '~/utils/emitter'
-import { Link, useNavigate } from '~/router'
+import NewFolderDialog from './new-folder-dialog'
 
 function getNextFolderId(folders: Array<FolderType>, index: number) {
   if (index === 0 && folders.length === 1) {
@@ -96,11 +96,11 @@ function SidebarFolderMenu({ openedFolder, setOpenedFolder, className }: Sidebar
           <SidebarMenuSub>
             {foldersLoading
               ? (
-                <>
-                  {Array.from({ length: 3 }).map((_, index) => (
-                    <Skeleton key={index} className="w-full h-10" />
-                  ))}
-                </>
+                  <>
+                    {Array.from({ length: 3 }).map((_, index) => (
+                      <Skeleton key={index} className="w-full h-10" />
+                    ))}
+                  </>
                 )
               : (
                   folders?.map(folder => (

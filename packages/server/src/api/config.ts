@@ -1,8 +1,8 @@
+import type { AITagConfig } from '@web-archive/shared/types'
+import type { HonoTypeUserInformation } from '~/constants/binding'
 import { Hono } from 'hono'
 import { validator } from 'hono/validator'
-import type { AITagConfig } from '@web-archive/shared/types'
 import { z } from 'zod'
-import type { HonoTypeUserInformation } from '~/constants/binding'
 import { getAITagConfig, getShouldShowRecent, setAITagConfig, setShouldShowRecent } from '~/model/store'
 import result from '~/utils/result'
 

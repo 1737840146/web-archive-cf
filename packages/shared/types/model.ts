@@ -30,4 +30,4 @@ type Tag = {
   updatedAt: Date
 }
 
-export type { Page, Folder, Tag }
+export type { Folder, Page, Tag }

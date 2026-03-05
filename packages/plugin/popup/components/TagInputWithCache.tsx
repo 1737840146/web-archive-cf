@@ -1,15 +1,15 @@
-import { useRef } from 'react'
 import type { AutoCompleteTagInputRef } from '@web-archive/shared/components/auto-complete-tag-input'
+import type { GenerateTagProps } from '@web-archive/shared/utils'
 import AutoCompleteTagInput from '@web-archive/shared/components/auto-complete-tag-input'
 import { Button } from '@web-archive/shared/components/button'
-import type { GenerateTagProps } from '@web-archive/shared/utils'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@web-archive/shared/components/tooltip'
 import { generateTagByOpenAI } from '@web-archive/shared/utils'
 import { useRequest } from 'ahooks'
 import { AlertCircleIcon, Loader2Icon, SparklesIcon } from 'lucide-react'
-import { sendMessage } from 'webext-bridge/popup'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@web-archive/shared/components/tooltip'
+import { useRef } from 'react'
 import toast from 'react-hot-toast'
 import { useTranslation } from 'react-i18next'
+import { sendMessage } from 'webext-bridge/popup'
 
 async function getAllTags() {
   const { tags } = await sendMessage('get-all-tags', {})

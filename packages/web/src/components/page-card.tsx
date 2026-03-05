@@ -1,24 +1,25 @@
 import type { Page } from '@web-archive/shared/types'
-import React, { memo, useContext, useState } from 'react'
-import { useRequest } from 'ahooks'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@web-archive/shared/components/card'
-import { Button } from '@web-archive/shared/components/button'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@web-archive/shared/components/tooltip'
-import { ExternalLink, Eye, EyeOff, SquarePen, Trash } from 'lucide-react'
-import { useLocation } from 'react-router-dom'
-import toast from 'react-hot-toast'
-import { BadgeSpan } from '@web-archive/shared/components/badge'
 import { TooltipPortal } from '@radix-ui/react-tooltip'
+import { BadgeSpan } from '@web-archive/shared/components/badge'
+import { Button } from '@web-archive/shared/components/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@web-archive/shared/components/card'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@web-archive/shared/components/tooltip'
+import { useRequest } from 'ahooks'
+import { ExternalLink, Eye, EyeOff, SquarePen, Trash } from 'lucide-react'
+import * as React from 'react'
+import { memo, useState } from 'react'
+import toast from 'react-hot-toast'
 import { useTranslation } from 'react-i18next'
-import ScreenshotView from './screenshot-view'
-import { updatePageShowcase } from '~/data/page'
+import { useLocation } from 'react-router-dom'
 import CardEditDialog from '~/components/card-edit-dialog'
-import TagContext from '~/store/tag'
+import { updatePageShowcase } from '~/data/page'
 import { Link } from '~/router'
+import TagContext from '~/store/tag'
+import ScreenshotView from './screenshot-view'
 
 function Comp({ page, onPageDelete }: { page: Page, onPageDelete?: (page: Page) => void }) {
   const { t } = useTranslation()
-  const { tagCache, refreshTagCache } = useContext(TagContext)
+  const { tagCache, refreshTagCache } = use(TagContext)
   const bindTags = tagCache?.filter(tag => tag.pageIds.includes(page.id)) ?? []
   const tagBadgeList = bindTags.map((tag) => {
     return (<BadgeSpan key={tag.id} variant="outline" className="select-none">{tag.name}</BadgeSpan>)

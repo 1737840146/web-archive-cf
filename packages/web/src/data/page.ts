@@ -115,15 +115,15 @@ function queryAllPageIds(folderId: number): Promise<number[]> {
 }
 
 export {
-  getPageDetail,
-  deletePage,
-  queryPage,
-  updatePage,
-  queryDeletedPage,
-  restorePage,
   clearDeletedPage,
-  updatePageShowcase,
+  deletePage,
+  getPageDetail,
   getPageScreenshot,
   getRecentSavePage,
   queryAllPageIds,
+  queryDeletedPage,
+  queryPage,
+  restorePage,
+  updatePage,
+  updatePageShowcase,
 }

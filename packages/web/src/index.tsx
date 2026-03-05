@@ -1,11 +1,11 @@
-import { createRoot } from 'react-dom/client'
-import { RouterProvider } from 'react-router-dom'
-import '@web-archive/shared/global.css'
+import { ThemeProvider } from '@web-archive/shared/components/theme-provider'
 import { useLocalStorageState } from 'ahooks'
 import { useMemo } from 'react'
-import { ThemeProvider } from '@web-archive/shared/components/theme-provider'
+import { createRoot } from 'react-dom/client'
+import { RouterProvider } from 'react-router-dom'
 import AppContext from './store/app'
 import router from './utils/router'
+import '@web-archive/shared/global.css'
 import '~/i18n'
 
 function Routes() {
@@ -17,7 +17,7 @@ function Routes() {
   })
 
   return (
-    <AppContext.Provider value={
+    <AppContext value={
       useMemo(() => ({
         view: view as 'card' | 'list',
         setView,
@@ -29,7 +29,7 @@ function Routes() {
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <RouterProvider router={router} />
       </ThemeProvider>
-    </AppContext.Provider>
+    </AppContext>
   )
 }
 

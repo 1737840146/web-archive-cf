@@ -1,8 +1,8 @@
 import { isNil } from '@web-archive/shared/utils'
-import { sendMessage } from 'webext-bridge/popup'
 import { useRequest } from 'ahooks'
 import { LoaderCircle } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
+import { sendMessage } from 'webext-bridge/popup'
 import { getCurrentTab } from '../utils/tab'
 
 async function getSavedPages() {

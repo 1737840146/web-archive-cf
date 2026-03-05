@@ -1,5 +1,5 @@
-import { isNil } from '@web-archive/shared/utils'
 import type { Tag } from '~/sql/types'
+import { isNil } from '@web-archive/shared/utils'
 
 async function selectAllTags(DB: D1Database) {
   const sql = `
@@ -140,12 +140,12 @@ function pageIdsToUnbindDictString(pageIds: Array<number>) {
 }
 
 export {
-  selectAllTags,
-  insertTag,
-  getTagById,
-  updateTag,
   deleteTagById,
-  updateBindPageByTagName,
   generateUpdateTagSql,
+  getTagById,
+  insertTag,
+  selectAllTags,
   TagBindRecord,
+  updateBindPageByTagName,
+  updateTag,
 }

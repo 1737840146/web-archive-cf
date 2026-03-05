@@ -1,13 +1,13 @@
-import { useInfiniteScroll } from 'ahooks'
-import { useRef } from 'react'
 import type { Ref } from '@web-archive/shared/components/scroll-area'
 import { ScrollArea } from '@web-archive/shared/components/scroll-area'
-import LoadingWrapper from '~/components/loading-wrapper'
+import { useInfiniteScroll } from 'ahooks'
+import { useRef } from 'react'
 import CardView from '~/components/card-view'
 import EmptyWrapper from '~/components/empty-wrapper'
-import { queryShowcase } from '~/data/showcase'
 import LoadingMore from '~/components/loading-more'
+import LoadingWrapper from '~/components/loading-wrapper'
 import PoweredBy from '~/components/powerd-by'
+import { queryShowcase } from '~/data/showcase'
 
 function ShowcaseFolderPage() {
   const scrollRef = useRef<Ref>(null)

@@ -1,10 +1,10 @@
+import { isNotNil } from '@web-archive/shared/utils'
+import { onMessage } from 'webext-bridge/background'
 import Browser from 'webextension-polyfill'
+import { checkLoginStatus, getCacheLoginStatus, resetLoginStatus } from './login'
+import { clearFinishedTaskList, createAndRunTask, getTaskList } from './processor'
 import '~/lib/browser-polyfill.min.js'
 import '~/lib/single-file-background.js'
-import { onMessage } from 'webext-bridge/background'
-import { isNotNil } from '@web-archive/shared/utils'
-import { clearFinishedTaskList, createAndRunTask, getTaskList } from './processor'
-import { checkLoginStatus, getCacheLoginStatus, resetLoginStatus } from './login'
 
 Browser.runtime.onInstalled.addListener(async () => {
   const tags = await Browser.tabs.query({})

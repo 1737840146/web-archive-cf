@@ -1,21 +1,21 @@
+import { zodResolver } from '@hookform/resolvers/zod'
+import AutoCompleteTagInput from '@web-archive/shared/components/auto-complete-tag-input'
 import { Button } from '@web-archive/shared/components/button'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@web-archive/shared/components/collapsible'
-import { Input } from '@web-archive/shared/components/input'
-import { ChevronDown } from 'lucide-react'
-import { useContext, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@web-archive/shared/components/form'
-import { useRequest } from 'ahooks'
+import { Input } from '@web-archive/shared/components/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@web-archive/shared/components/select'
-import { zodResolver } from '@hookform/resolvers/zod'
+import { useRequest } from 'ahooks'
+import { ChevronDown } from 'lucide-react'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
-import AutoCompleteTagInput from '@web-archive/shared/components/auto-complete-tag-input'
 import { useTranslation } from 'react-i18next'
-import LoadingWrapper from './loading-wrapper'
-import AITagTestConnectionButton from './ai-tag-test-connection-button'
+import { z } from 'zod'
 import { getAITagConfig, setAITagConfig } from '~/data/config'
 import TagContext from '~/store/tag'
+import AITagTestConnectionButton from './ai-tag-test-connection-button'
+import LoadingWrapper from './loading-wrapper'
 
 function AITagSettingCollapsible() {
   const { t } = useTranslation()
@@ -73,7 +73,7 @@ function AITagSettingCollapsible() {
     return form.trigger()
   }
 
-  const { tagCache } = useContext(TagContext)
+  const { tagCache } = use(TagContext)
 
   return (
     <Collapsible

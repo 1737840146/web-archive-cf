@@ -1,7 +1,8 @@
 import type { Page } from '@web-archive/shared/types'
 import { Table, TableBody, TableCell, TableRow } from '@web-archive/shared/components/table'
-import React, { useState } from 'react'
 import { useMouse } from 'ahooks'
+import * as React from 'react'
+import { useState } from 'react'
 import ScreenshotView from './screenshot-view'
 
 interface ListViewProps {

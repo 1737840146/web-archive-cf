@@ -1,8 +1,8 @@
-import { isNotNil } from '@web-archive/shared/utils'
 import type { TagBindRecord } from './tag'
-import { generateUpdateTagSql } from './tag'
 import type { Page } from '~/sql/types'
+import { isNotNil } from '@web-archive/shared/utils'
 import { removeBucketFile } from '~/utils/file'
+import { generateUpdateTagSql } from './tag'
 
 async function selectPageTotalCount(DB: D1Database, options: { folderId?: number, keyword?: string, tagId?: number }) {
   const { folderId, keyword, tagId } = options
@@ -252,18 +252,18 @@ async function queryAllPageIds(DB: D1Database, folderId: number) {
 }
 
 export {
-  selectPageTotalCount,
-  queryPage,
-  queryPageByUrl,
-  selectDeletedPageTotalCount,
-  queryDeletedPage,
+  clearDeletedPage,
   deletePageById,
-  restorePage,
   getPageById,
   insertPage,
-  clearDeletedPage,
-  queryRecentSavePage,
-  selectAllPageCount,
-  updatePage,
   queryAllPageIds,
+  queryDeletedPage,
+  queryPage,
+  queryPageByUrl,
+  queryRecentSavePage,
+  restorePage,
+  selectAllPageCount,
+  selectDeletedPageTotalCount,
+  selectPageTotalCount,
+  updatePage,
 }

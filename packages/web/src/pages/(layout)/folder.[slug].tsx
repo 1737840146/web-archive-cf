@@ -1,22 +1,23 @@
-import { isNil } from '@web-archive/shared/utils'
-import { useOutletContext } from 'react-router-dom'
-import { useInfiniteScroll, useRequest } from 'ahooks'
-import React, { useContext, useEffect, useRef } from 'react'
 import type { Ref } from '@web-archive/shared/components/scroll-area'
-import { ScrollArea } from '@web-archive/shared/components/scroll-area'
-import { Button } from '@web-archive/shared/components/button'
-import { Trash } from 'lucide-react'
 import type { Page } from '@web-archive/shared/types'
-import { useNavigate, useParams } from '~/router'
-import NotFound from '~/components/not-found'
-import LoadingWrapper from '~/components/loading-wrapper'
-import { deletePage, queryPage } from '~/data/page'
+import { Button } from '@web-archive/shared/components/button'
+import { ScrollArea } from '@web-archive/shared/components/scroll-area'
+import { isNil } from '@web-archive/shared/utils'
+import { useInfiniteScroll, useRequest } from 'ahooks'
+import { Trash } from 'lucide-react'
+import * as React from 'react'
+import { useEffect, useRef } from 'react'
+import { useOutletContext } from 'react-router-dom'
 import CardView from '~/components/card-view'
 import EmptyWrapper from '~/components/empty-wrapper'
-import ListView from '~/components/list-view'
-import AppContext from '~/store/app'
-import LoadingMore from '~/components/loading-more'
 import Header from '~/components/header'
+import ListView from '~/components/list-view'
+import LoadingMore from '~/components/loading-more'
+import LoadingWrapper from '~/components/loading-wrapper'
+import NotFound from '~/components/not-found'
+import { deletePage, queryPage } from '~/data/page'
+import { useNavigate, useParams } from '~/router'
+import AppContext from '~/store/app'
 
 function FolderPage() {
   const { slug } = useParams('/folder/:slug')
@@ -68,7 +69,7 @@ function FolderPage() {
       navigate(`/page/:slug`, { params: { slug: String(page.id) } })
   }
 
-  const { view } = useContext(AppContext)
+  const { view } = use(AppContext)
   const { setKeyword, handleSearch } = useOutletContext<{ keyword: string, setKeyword: (keyword: string) => void, handleSearch: () => void }>()
 
   if (isNil(slug))
@@ -83,23 +84,23 @@ function FolderPage() {
             <EmptyWrapper empty={pagesData?.list.length === 0}>
               {view === 'card'
                 ? (
-                  <CardView pages={pagesData?.list} onPageDelete={handleDeletePage} />
+                    <CardView pages={pagesData?.list} onPageDelete={handleDeletePage} />
                   )
                 : (
-                  <ListView pages={pagesData?.list} onItemClick={handleItemClick} imgPreview>
-                    {page => (
-                      <Button
-                        variant="link"
-                        size="icon"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          handleDeletePage(page)
-                        }}
-                      >
-                        <Trash className="h-4 w-4" />
-                      </Button>
-                    )}
-                  </ListView>
+                    <ListView pages={pagesData?.list} onItemClick={handleItemClick} imgPreview>
+                      {page => (
+                        <Button
+                          variant="link"
+                          size="icon"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            handleDeletePage(page)
+                          }}
+                        >
+                          <Trash className="h-4 w-4" />
+                        </Button>
+                      )}
+                    </ListView>
                   )}
             </EmptyWrapper>
             {loadingMore && <LoadingMore />}

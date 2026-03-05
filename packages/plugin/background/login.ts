@@ -24,7 +24,7 @@ async function getCacheLoginStatus() {
 }
 
 export {
-  resetLoginStatus,
   checkLoginStatus,
   getCacheLoginStatus,
+  resetLoginStatus,
 }

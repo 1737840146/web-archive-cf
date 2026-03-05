@@ -29,8 +29,8 @@ function generateTag(body: { title: string, pageDesc: string, model: string, pre
 }
 
 export {
-  getAllTag,
   deleteTag,
-  updateTag,
   generateTag,
+  getAllTag,
+  updateTag,
 }

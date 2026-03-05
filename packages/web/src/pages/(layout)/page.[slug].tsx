@@ -1,7 +1,7 @@
 import { Button } from '@web-archive/shared/components/button'
 import { useRequest } from 'ahooks'
 import { ArrowLeft, Trash } from 'lucide-react'
-import { useContext, useEffect } from 'react'
+import { use, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import IframePageContent from '~/components/iframe-page-content'
 import LoadingWrapper from '~/components/loading-wrapper'
@@ -83,7 +83,7 @@ function ArchivePage() {
     goBack()
   }
 
-  const { readMode, setReadMode } = useContext(AppContext)
+  const { readMode, setReadMode } = use(AppContext)
 
   return (
     <main className="h-screen w-screen lg:w-full flex flex-col">

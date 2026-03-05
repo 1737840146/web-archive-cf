@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 
-import { sendMessage } from 'webext-bridge/popup'
 import { Toaster } from 'react-hot-toast'
-import HistoryTaskList from './components/HistoryTaskList'
-import SettingPage from '~/popup/components/SettingPage'
+import { sendMessage } from 'webext-bridge/popup'
+import LoadingPage from '~/popup/components/LoadingPage'
 import LoginPage from '~/popup/components/LoginPage'
 import PluginHomePage from '~/popup/components/PluginHomePage'
+import SettingPage from '~/popup/components/SettingPage'
 import UploadPageForm from '~/popup/components/UploadPageForm'
-import LoadingPage from '~/popup/components/LoadingPage'
+import HistoryTaskList from './components/HistoryTaskList'
 
 export type PageType = 'home' | 'login' | 'loading' | 'upload' | 'setting' | 'history' | 'empty'
 

@@ -1,8 +1,8 @@
-import '~/styles'
-import React from 'react'
-import ReactDOM from 'react-dom/client'
 import { ThemeProvider } from '@web-archive/shared/components/theme-provider'
+import * as React from 'react'
+import ReactDOM from 'react-dom/client'
 import PopupContainer from './PopupPage'
+import '~/styles'
 import '@web-archive/shared/global.css'
 import '~/i18n'
 

@@ -1,12 +1,12 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@web-archive/shared/components/card'
-import { Label, Pie, PieChart } from 'recharts'
 import type { ChartConfig } from '@web-archive/shared/components/chart'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@web-archive/shared/components/card'
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@web-archive/shared/components/chart'
 import { useRequest } from 'ahooks'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import ChartCardSkeleton from './common/chart-card-skeleton'
+import { Label, Pie, PieChart } from 'recharts'
 import { getPageChartData } from '~/data/data'
+import ChartCardSkeleton from './common/chart-card-skeleton'
 
 function TotalPieCard() {
   const { t } = useTranslation()
@@ -47,49 +47,49 @@ function TotalPieCard() {
           {loading
             ? <ChartCardSkeleton />
             : (
-              <PieChart>
-                <ChartTooltip
-                  cursor={false}
-                  content={<ChartTooltipContent hideLabel />}
-                />
-                <Pie
-                  data={chartConfig.data}
-                  dataKey="count"
-                  nameKey="folder"
-                  innerRadius={60}
-                  strokeWidth={5}
-                >
-                  <Label
-                    content={({ viewBox }) => {
-                      if (viewBox && 'cx' in viewBox && 'cy' in viewBox) {
-                        return (
-                          <text
-                            x={viewBox.cx}
-                            y={viewBox.cy}
-                            textAnchor="middle"
-                            dominantBaseline="middle"
-                          >
-                            <tspan
+                <PieChart>
+                  <ChartTooltip
+                    cursor={false}
+                    content={<ChartTooltipContent hideLabel />}
+                  />
+                  <Pie
+                    data={chartConfig.data}
+                    dataKey="count"
+                    nameKey="folder"
+                    innerRadius={60}
+                    strokeWidth={5}
+                  >
+                    <Label
+                      content={({ viewBox }) => {
+                        if (viewBox && 'cx' in viewBox && 'cy' in viewBox) {
+                          return (
+                            <text
                               x={viewBox.cx}
                               y={viewBox.cy}
-                              className="fill-foreground text-3xl font-bold"
+                              textAnchor="middle"
+                              dominantBaseline="middle"
                             >
-                              {pageChartData?.all}
-                            </tspan>
-                            <tspan
-                              x={viewBox.cx}
-                              y={(viewBox.cy || 0) + 24}
-                              className="fill-muted-foreground"
-                            >
-                              Pages
-                            </tspan>
-                          </text>
-                        )
-                      }
-                    }}
-                  />
-                </Pie>
-              </PieChart>
+                              <tspan
+                                x={viewBox.cx}
+                                y={viewBox.cy}
+                                className="fill-foreground text-3xl font-bold"
+                              >
+                                {pageChartData?.all}
+                              </tspan>
+                              <tspan
+                                x={viewBox.cx}
+                                y={(viewBox.cy || 0) + 24}
+                                className="fill-muted-foreground"
+                              >
+                                Pages
+                              </tspan>
+                            </text>
+                          )
+                        }
+                      }}
+                    />
+                  </Pie>
+                </PieChart>
               )}
         </ChartContainer>
       </CardContent>

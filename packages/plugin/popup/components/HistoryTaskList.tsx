@@ -1,13 +1,13 @@
-import { useRequest } from 'ahooks'
-import { sendMessage } from 'webext-bridge/popup'
-import { ScrollArea } from '@web-archive/shared/components/scroll-area'
-import { ArrowLeft, Check, ClockAlert, Eraser, LoaderCircle } from 'lucide-react'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@web-archive/shared/components/tooltip'
-import Browser from 'webextension-polyfill'
-import { Button } from '@web-archive/shared/components/button'
-import { useTranslation } from 'react-i18next'
 import type { PageType } from '../PopupPage'
 import type { SeriableSingleFileTask } from '~/background/processor'
+import { Button } from '@web-archive/shared/components/button'
+import { ScrollArea } from '@web-archive/shared/components/scroll-area'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@web-archive/shared/components/tooltip'
+import { useRequest } from 'ahooks'
+import { ArrowLeft, Check, ClockAlert, Eraser, LoaderCircle } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { sendMessage } from 'webext-bridge/popup'
+import Browser from 'webextension-polyfill'
 
 function HistoryTaskList({ setActivePage }: { setActivePage: (tab: PageType) => void }) {
   const { data: taskList } = useRequest(

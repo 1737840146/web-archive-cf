@@ -21,4 +21,4 @@ interface OpenAIConfig extends BaseAITagConfig {
   apiUrl: string
 }
 
-export { ConfigKey, AITagConfig, OpenAIConfig, CloudFlareAITagConfig }
+export { AITagConfig, CloudFlareAITagConfig, ConfigKey, OpenAIConfig }

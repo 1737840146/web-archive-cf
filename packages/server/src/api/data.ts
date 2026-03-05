@@ -1,5 +1,5 @@
-import { Hono } from 'hono'
 import type { HonoTypeUserInformation } from '~/constants/binding'
+import { Hono } from 'hono'
 import { getHomeChartData } from '~/model/data'
 import result from '~/utils/result'
 

@@ -1,8 +1,8 @@
 import { Button } from '@web-archive/shared/components/button'
 import { Input } from '@web-archive/shared/components/input'
 import { Search } from 'lucide-react'
-import { useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { useLocation } from 'react-router-dom'
 import ViewToggle from './view-toggle'
 
 interface SearchBarProps {

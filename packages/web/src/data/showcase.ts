@@ -26,4 +26,4 @@ function getNextShowcasePageId(pageId: number) {
   })
 }
 
-export { queryShowcase, getNextShowcasePageId }
+export { getNextShowcasePageId, queryShowcase }

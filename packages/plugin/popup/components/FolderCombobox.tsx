@@ -1,7 +1,3 @@
-import * as React from 'react'
-import { Check, ChevronDown } from 'lucide-react'
-
-import { cn } from '@web-archive/shared/utils'
 import { Button } from '@web-archive/shared/components/button'
 import {
   Command,
@@ -10,11 +6,15 @@ import {
   CommandItem,
   CommandList,
 } from '@web-archive/shared/components/command'
+
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@web-archive/shared/components/popover'
+import { cn } from '@web-archive/shared/utils'
+import { Check, ChevronDown } from 'lucide-react'
+import * as React from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface ComboboxProps {
